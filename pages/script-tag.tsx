@@ -1,13 +1,10 @@
 import { GetServerSidePropsContext } from "next";
-import Head from "next/head";
 
 export default function Home({ nonce }: { nonce: string }) {
   return (
     <div>
-      <Head>
-        <script src="https://www.googletagmanager.com/gtag/js" nonce={nonce} />
-      </Head>
-      <h1>Using Head Component to inject script tag</h1>
+      <script src="https://www.googletagmanager.com/gtag/js" nonce={nonce} />
+      <h1>Using script tag directly in the body</h1>
       <p>Nonce: {nonce}</p>
     </div>
   );
