@@ -6,6 +6,30 @@ export default function Home({ nonce }: { nonce: string }) {
     <>
       <Head>
         <script src="https://www.googletagmanager.com/gtag/js" nonce={nonce} />
+
+        {/* This script will not be executed because the nonce is not present */}
+        <script src="https://www.googletagmanager.com/gtag/js" />
+
+        {/* This script will not be executed because 'unsafe-eval' is not an allowed source */}
+        <script nonce={nonce}>console.log("XSS Attack!");</script>
+
+        {/* This style will be applied because the nonce is present */}
+        <style nonce={nonce}>
+          {`
+            body {
+              background-color: white;
+            }
+          `}
+        </style>
+
+        {/* This style will not be applied because the nonce is not present and 'unsafe-inline' is not an allowed source */}
+        <style>
+          {`
+            body {
+              background-color: red !important;
+            }
+          `}
+        </style>
       </Head>
       <div>
         <p>Nonce: {nonce}</p>
