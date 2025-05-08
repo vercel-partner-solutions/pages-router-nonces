@@ -1,13 +1,16 @@
 import { GetServerSidePropsContext } from "next";
-import Script from "next/script";
+import Head from "next/head";
 
 export default function Home({ nonce }: { nonce: string }) {
   return (
-    <div>
-      <Script src="https://www.googletagmanager.com/gtag/js" nonce={nonce} />
-
-      <p>Nonce: {nonce}</p>
-    </div>
+    <>
+      <Head>
+        <script src="https://www.googletagmanager.com/gtag/js" nonce={nonce} />
+      </Head>
+      <div>
+        <p>Nonce: {nonce}</p>
+      </div>
+    </>
   );
 }
 
