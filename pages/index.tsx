@@ -6,7 +6,6 @@ export default function Home({ nonce }: { nonce: string }) {
     <div>
       <Script src="https://www.googletagmanager.com/gtag/js" nonce={nonce} />
 
-      <h1>Using Head Component to inject script tag</h1>
       <p>Nonce: {nonce}</p>
     </div>
   );
