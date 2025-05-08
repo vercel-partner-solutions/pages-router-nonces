@@ -11,7 +11,7 @@ export default function Home({ nonce }: { nonce: string }) {
         <script src="https://www.googletagmanager.com/gtag/js" />
 
         {/* This script will be executed because the nonce is present */}
-        <script nonce={nonce}>console.log("XSS Attack!");</script>
+        <script nonce={nonce}>console.log("Safe script!");</script>
 
         {/* This script will not be executed because the nonce is not present */}
         <script>console.log("XSS Attack!");</script>
